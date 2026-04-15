@@ -1,0 +1,26 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "VsAKJ9dS8M-6GyFDZwX_d"
+uri = "file://artifacts/eliana-azevedo/public/images/hero.png"
+type = "image"
+title = "Hero image of dog grooming"
+
+[[generated]]
+id = "CZ-RRkl2cGvcCjZnO6HKh"
+uri = "file://artifacts/eliana-azevedo/public/images/team-eliana.png"
+type = "image"
+title = "Professional groomer Eliana"
+
+[[generated]]
+id = "t_tobqVPLKT0TmnIfytoq"
+uri = "file://artifacts/eliana-azevedo/public/images/service-banho.png"
+type = "image"
+title = "Dog getting a gentle bath"
+
+[[generated]]
+id = "OzoCsADgkcTJjvpzcdJxj"
+uri = "file://artifacts/eliana-azevedo/public/images/service-tosa.png"
+type = "image"
+title = "Dog getting a haircut"

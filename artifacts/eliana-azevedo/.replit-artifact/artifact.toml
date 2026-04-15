@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Espaço Eliana Azevedo"
+version = "1.0.0"
+id = "artifacts/eliana-azevedo"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20836
+
+[services.development]
+run = "pnpm --filter @workspace/eliana-azevedo run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/eliana-azevedo", "run", "build" ]
+publicDir = "artifacts/eliana-azevedo/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20836"
+BASE_PATH = "/"
