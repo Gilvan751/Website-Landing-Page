@@ -7,7 +7,7 @@ import { Link } from "wouter";
 import { 
   Heart, Star, Clock, ShieldCheck, MapPin, Phone, Mail, 
   Scissors, Droplets, CheckCircle2, ChevronDown, ArrowRight,
-  CalendarDays, Menu, X, Facebook, Instagram, Twitter, MessageCircle
+  CalendarDays, Menu, X, Facebook, Instagram, MessageCircle
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -79,6 +79,15 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
+      {/* SVG ClipPath para efeito Squircle */}
+      <svg width="0" height="0" style={{ position: "absolute" }}>
+        <defs>
+          <clipPath id="squircleClip" clipPathUnits="objectBoundingBox">
+            <path d="M 0,0.5 C 0,0 0,0 0.5,0 S 1,0 1,0.5 1,1 0.5,1 0,1 0,0.5" />
+          </clipPath>
+        </defs>
+      </svg>
+
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-border/50">
         <div className="container mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
@@ -799,15 +808,30 @@ export default function Home() {
               <p className="text-muted-foreground max-w-sm mb-6">
                 Muito mais que um banho e tosa. Um centro de cuidado, estética e bem-estar para o membro mais peludo da sua família.
               </p>
-              <div className="flex gap-4">
-                <a href="#" className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-foreground hover:text-primary hover:border-primary transition-colors">
-                  <Instagram className="w-5 h-5" />
+              <div className="flex gap-3">
+                <a href="#" title="Instagram" aria-label="Instagram">
+                  <div
+                    style={{ clipPath: "url(#squircleClip)" }}
+                    className="w-14 h-14 bg-gradient-to-br from-pink-500 via-rose-500 to-purple-600 flex items-center justify-center shadow-lg cursor-pointer transform transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-2 hover:shadow-2xl"
+                  >
+                    <Instagram className="w-7 h-7 text-white" />
+                  </div>
                 </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-foreground hover:text-primary hover:border-primary transition-colors">
-                  <Facebook className="w-5 h-5" />
+                <a href="#" title="Facebook" aria-label="Facebook">
+                  <div
+                    style={{ clipPath: "url(#squircleClip)" }}
+                    className="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center shadow-lg cursor-pointer transform transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-2 hover:shadow-2xl"
+                  >
+                    <Facebook className="w-7 h-7 text-white" />
+                  </div>
                 </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-foreground hover:text-primary hover:border-primary transition-colors">
-                  <Twitter className="w-5 h-5" />
+                <a href="https://wa.me/5511987654321" target="_blank" rel="noopener noreferrer" title="WhatsApp" aria-label="WhatsApp">
+                  <div
+                    style={{ clipPath: "url(#squircleClip)" }}
+                    className="w-14 h-14 bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center shadow-lg cursor-pointer transform transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-2 hover:shadow-2xl"
+                  >
+                    <MessageCircle className="w-7 h-7 text-white" />
+                  </div>
                 </a>
               </div>
             </div>
