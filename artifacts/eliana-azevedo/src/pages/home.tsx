@@ -6,8 +6,8 @@ import * as z from "zod";
 import { Link } from "wouter";
 import { 
   Heart, Star, Clock, ShieldCheck, MapPin, Phone, Mail, 
-  Scissors, Droplets, CheckCircle2, ChevronDown, 
-  CalendarDays, Menu, X, Facebook, Instagram, Twitter
+  Scissors, Droplets, CheckCircle2, ChevronDown, ArrowRight,
+  CalendarDays, Menu, X, Facebook, Instagram, Twitter, MessageCircle
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -151,12 +151,24 @@ export default function Home() {
               Banho e tosa profissional com mais de 10 anos de experiência. Um ambiente seguro e acolhedor onde seu pet é tratado como parte da nossa família.
             </motion.p>
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" onClick={() => scrollToSection("agendamento")} className="bg-primary hover:bg-primary/90 text-white rounded-full text-lg h-14 px-8">
-                Agendar Horário
-              </Button>
-              <Button size="lg" variant="outline" onClick={() => scrollToSection("servicos")} className="rounded-full text-lg h-14 px-8 border-primary/20 hover:bg-primary/5">
-                Conheça os Serviços
-              </Button>
+              <motion.div
+                animate={{ scale: [1, 1.04, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="rounded-full"
+              >
+                <Button size="lg" onClick={() => scrollToSection("agendamento")} className="btn-pulse-primary bg-primary hover:bg-primary/90 text-white rounded-full text-lg h-14 px-8 w-full">
+                  <CalendarDays className="w-5 h-5 mr-2" /> Agendar Horário
+                </Button>
+              </motion.div>
+              <motion.div
+                animate={{ scale: [1, 1.03, 1] }}
+                transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                className="rounded-full"
+              >
+                <Button size="lg" variant="outline" onClick={() => scrollToSection("servicos")} className="btn-pulse-green rounded-full text-lg h-14 px-8 border-primary/30 hover:bg-primary/5 w-full">
+                  Conheça os Serviços <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+              </motion.div>
             </motion.div>
             
             <motion.div variants={fadeInUp} className="mt-12 flex items-center gap-6">
@@ -212,6 +224,30 @@ export default function Home() {
                   <span className="text-sm font-medium text-muted-foreground">Clientes Satisfeitos</span>
                 </div>
               </motion.div>
+
+              <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
+                <motion.div
+                  animate={{ scale: [1, 1.04, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  className="inline-block"
+                >
+                  <Button
+                    size="lg"
+                    onClick={() => scrollToSection("agendamento")}
+                    className="btn-pulse-primary bg-primary hover:bg-primary/90 text-white rounded-full h-12 px-8"
+                  >
+                    <CalendarDays className="w-5 h-5 mr-2" /> Agendar Consulta
+                  </Button>
+                </motion.div>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  onClick={() => scrollToSection("servicos")}
+                  className="rounded-full h-12 px-8 border-primary/30 hover:bg-primary/5 hover:border-primary/60 transition-all"
+                >
+                  Ver Serviços <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </motion.div>
             </motion.div>
             
             <motion.div 
@@ -258,18 +294,47 @@ export default function Home() {
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ scale: 1.05, y: -10 }}
+                whileTap={{ scale: 0.97 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.5 }}
-                className="bg-card p-8 rounded-2xl border border-card-border shadow-sm hover:shadow-md transition-shadow"
+                className="bg-card p-8 rounded-2xl border border-card-border shadow-sm hover:shadow-2xl hover:border-primary/30 transition-all duration-300 cursor-pointer group"
               >
-                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
+                <motion.div
+                  whileHover={{ rotate: [0, -12, 12, 0], scale: 1.2 }}
+                  transition={{ duration: 0.45 }}
+                  className="w-14 h-14 bg-primary/10 group-hover:bg-primary/20 rounded-2xl flex items-center justify-center mb-6 transition-colors duration-300"
+                >
                   <feature.icon className="w-7 h-7 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+                </motion.div>
+                <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">{feature.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{feature.desc}</p>
               </motion.div>
             ))}
           </div>
+
+          {/* CTA após "Por que nos escolher" */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mt-16"
+          >
+            <p className="text-muted-foreground mb-6 text-lg">Pronto para dar o melhor cuidado ao seu pet?</p>
+            <motion.div
+              animate={{ scale: [1, 1.04, 1] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="inline-block"
+            >
+              <Button
+                size="lg"
+                onClick={() => scrollToSection("agendamento")}
+                className="btn-pulse-primary bg-primary hover:bg-primary/90 text-white rounded-full text-lg h-14 px-10"
+              >
+                <CalendarDays className="w-5 h-5 mr-2" /> Agendar Meu Horário Agora
+              </Button>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -432,11 +497,12 @@ export default function Home() {
             ].map((review, idx) => (
               <motion.div 
                 key={idx}
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.92 }}
                 whileInView={{ opacity: 1, scale: 1 }}
+                whileHover={{ scale: 1.04, y: -8 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.1, duration: 0.4 }}
-                className="bg-card p-8 rounded-3xl border border-card-border relative"
+                transition={{ delay: idx * 0.12, duration: 0.4 }}
+                className="bg-card p-8 rounded-3xl border border-card-border relative hover:shadow-2xl hover:border-primary/25 transition-all duration-300 cursor-default"
               >
                 <div className="flex text-yellow-400 mb-6">
                   {[1, 2, 3, 4, 5].map((i) => <Star key={i} className="w-5 h-5 fill-current" />)}
@@ -454,6 +520,42 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
+
+          {/* CTA após depoimentos */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mt-16 bg-primary/5 rounded-3xl p-10 border border-primary/10"
+          >
+            <h3 className="text-2xl font-serif font-bold mb-3">Junte-se a mais de 5.000 tutores satisfeitos!</h3>
+            <p className="text-muted-foreground mb-8">Seu pet merece o melhor. Agende hoje mesmo e descubra a diferença.</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <motion.div
+                animate={{ scale: [1, 1.04, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="inline-block"
+              >
+                <Button
+                  size="lg"
+                  onClick={() => scrollToSection("agendamento")}
+                  className="btn-pulse-primary bg-primary hover:bg-primary/90 text-white rounded-full text-lg h-14 px-10"
+                >
+                  <Heart className="w-5 h-5 mr-2" /> Quero Agendar Agora
+                </Button>
+              </motion.div>
+              <motion.a
+                href="https://wa.me/5511987654321"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center justify-center gap-2 h-14 px-10 rounded-full text-lg font-medium bg-[#25D366] text-white hover:bg-[#20BD5C] transition-colors btn-pulse-green"
+              >
+                <MessageCircle className="w-5 h-5" /> Falar no WhatsApp
+              </motion.a>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -739,6 +841,22 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Botão flutuante WhatsApp */}
+      <motion.a
+        href="https://wa.me/5511987654321"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-8 right-8 z-50 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl btn-pulse-whatsapp"
+        whileHover={{ scale: 1.15 }}
+        whileTap={{ scale: 0.9 }}
+        initial={{ opacity: 0, scale: 0, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ delay: 2.5, type: "spring", stiffness: 200, damping: 15 }}
+        title="Fale conosco no WhatsApp"
+      >
+        <MessageCircle className="w-8 h-8" />
+      </motion.a>
     </div>
   );
 }
