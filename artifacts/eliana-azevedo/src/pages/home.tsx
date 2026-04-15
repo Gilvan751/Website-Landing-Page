@@ -82,10 +82,13 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-border/50">
         <div className="container mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-2">
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer"
+          >
             <Heart className="w-8 h-8 text-primary" />
             <span className="text-xl font-serif font-bold text-primary">Espaço Eliana Azevedo</span>
-          </div>
+          </button>
           
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
@@ -786,10 +789,13 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div className="md:col-span-2">
-              <div className="flex items-center gap-2 mb-6">
+              <button
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className="flex items-center gap-2 mb-6 hover:opacity-80 transition-opacity cursor-pointer"
+              >
                 <Heart className="w-6 h-6 text-primary" />
                 <span className="text-xl font-serif font-bold text-primary">Espaço Eliana Azevedo</span>
-              </div>
+              </button>
               <p className="text-muted-foreground max-w-sm mb-6">
                 Muito mais que um banho e tosa. Um centro de cuidado, estética e bem-estar para o membro mais peludo da sua família.
               </p>
