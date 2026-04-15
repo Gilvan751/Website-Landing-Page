@@ -24,3 +24,63 @@ id = "OzoCsADgkcTJjvpzcdJxj"
 uri = "file://artifacts/eliana-azevedo/public/images/service-tosa.png"
 type = "image"
 title = "Dog getting a haircut"
+
+[[generated]]
+id = "MZEy5mMZEO8IDp63ktE4x"
+uri = "file://artifacts/eliana-azevedo/public/images/srv-banho-higienico.png"
+type = "image"
+title = "warm bath dog groomer"
+
+[[generated]]
+id = "NFbqT-vBezJk58W_eFEDB"
+uri = "file://artifacts/eliana-azevedo/public/images/srv-banho-terapeutico.png"
+type = "image"
+title = "calming bath dog"
+
+[[generated]]
+id = "v3Ul_QA8Dkg68D-9zFjNd"
+uri = "file://artifacts/eliana-azevedo/public/images/srv-banho-completo.png"
+type = "image"
+title = "fluffy dog blow dried"
+
+[[generated]]
+id = "T59F7G-15fVgvq1tRIm3G"
+uri = "file://artifacts/eliana-azevedo/public/images/srv-tosa-higienica.png"
+type = "image"
+title = "hygiene trim small dog"
+
+[[generated]]
+id = "q4uytyWxhxt2JV8Y0j8Lr"
+uri = "file://artifacts/eliana-azevedo/public/images/srv-tosa-maquina.png"
+type = "image"
+title = "dog haircut clippers"
+
+[[generated]]
+id = "8D4CoIKNOuZ8BfnblT4Ma"
+uri = "file://artifacts/eliana-azevedo/public/images/srv-tosa-tesoura.png"
+type = "image"
+title = "precision scissor trim poodle"
+
+[[generated]]
+id = "5gDJW-1V5eVY_5O0imPeL"
+uri = "file://artifacts/eliana-azevedo/public/images/srv-hidratacao.png"
+type = "image"
+title = "dog hair hydration treatment"
+
+[[generated]]
+id = "-sKNT61RM_O30oTOSV4cv"
+uri = "file://artifacts/eliana-azevedo/public/images/srv-unhas.png"
+type = "image"
+title = "dog nail trimming"
+
+[[generated]]
+id = "ATM6fWlScrEj0C_yOjV9d"
+uri = "file://artifacts/eliana-azevedo/public/images/srv-ouvidos.png"
+type = "image"
+title = "dog ear cleaning"
+
+[[generated]]
+id = "JIr-4-85Un-aVAvTCezY9"
+uri = "file://artifacts/eliana-azevedo/public/images/srv-dentes.png"
+type = "image"
+title = "dog teeth brushing"

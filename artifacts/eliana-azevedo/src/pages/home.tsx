@@ -281,83 +281,135 @@ export default function Home() {
             <h2 className="text-3xl md:text-5xl font-serif font-bold text-foreground mb-6">Cuidado completo, da cabeça ao focinho.</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            {/* Banho Card */}
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="bg-card rounded-3xl overflow-hidden border border-card-border shadow-md"
-            >
-              <div className="h-64 relative">
-                <img src="/images/service-banho.png" alt="Banho pet" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
-                  <h3 className="text-3xl font-serif font-bold text-white">Banho</h3>
-                </div>
-              </div>
-              <div className="p-8">
-                <ul className="space-y-6">
-                  {[
-                    { title: "Banho Higiênico", desc: "Banho relaxante, secagem, escovação e perfume suave.", price: "A partir de R$ 50" },
-                    { title: "Banho Terapêutico", desc: "Ideal para peles sensíveis. Shampoo hipoalergênico e calmante.", price: "A partir de R$ 70" },
-                    { title: "Banho Completo", desc: "Inclui hidratação profunda, corte de unhas e limpeza de ouvidos.", price: "A partir de R$ 90" }
-                  ].map((item, idx) => (
-                    <li key={idx} className="border-b border-border pb-6 last:border-0 last:pb-0">
-                      <div className="flex justify-between items-start mb-2">
-                        <h4 className="font-bold text-lg">{item.title}</h4>
-                        <span className="font-medium text-primary bg-primary/10 px-3 py-1 rounded-full text-sm">{item.price}</span>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {[
+              {
+                category: "Banho",
+                title: "Banho Higiênico",
+                desc: "Banho relaxante com produtos premium, secagem profissional, escovação e perfume suave. Ideal para a rotina do seu pet.",
+                price: "A partir de R$ 50",
+                img: "/images/srv-banho-higienico.png"
+              },
+              {
+                category: "Banho",
+                title: "Banho Terapêutico",
+                desc: "Shampoo hipoalergênico e calmante, ideal para peles sensíveis. Alivia coceiras e irritações, deixando a pele saudável.",
+                price: "A partir de R$ 70",
+                img: "/images/srv-banho-terapeutico.png"
+              },
+              {
+                category: "Banho",
+                title: "Banho Completo",
+                desc: "Inclui hidratação profunda, corte de unhas e limpeza de ouvidos. O pacote mais completo para o bem-estar total.",
+                price: "A partir de R$ 90",
+                img: "/images/srv-banho-completo.png"
+              },
+              {
+                category: "Tosa",
+                title: "Tosa Higiênica",
+                desc: "Limpeza das patinhas, barriga e região íntima. Essencial para o conforto e higiene do animal no dia a dia.",
+                price: "A partir de R$ 40",
+                img: "/images/srv-tosa-higienica.png"
+              },
+              {
+                category: "Tosa",
+                title: "Tosa na Máquina",
+                desc: "Redução uniforme da pelagem com finalização em tesoura. Prático, confortável e com ótimo acabamento.",
+                price: "A partir de R$ 80",
+                img: "/images/srv-tosa-maquina.png"
+              },
+              {
+                category: "Tosa",
+                title: "Tosa na Tesoura",
+                desc: "Acabamento premium, modelagem específica para a raça, preservando o volume e o charme natural do seu pet.",
+                price: "A partir de R$ 120",
+                img: "/images/srv-tosa-tesoura.png"
+              }
+            ].map((service, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1, duration: 0.5 }}
+                className="flip-card h-[360px] w-full"
+              >
+                <div className="flip-card-inner shadow-xl rounded-2xl">
+                  <div className="flip-card-front relative">
+                    <img src={service.img} alt={service.title} className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-6 text-left">
+                      <div className="mb-2">
+                        <span className={`text-xs font-bold px-3 py-1 rounded-full text-white ${service.category === 'Banho' ? 'bg-cyan-500' : 'bg-emerald-500'}`}>
+                          {service.category}
+                        </span>
                       </div>
-                      <p className="text-muted-foreground text-sm">{item.desc}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
-
-            {/* Tosa Card */}
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="bg-card rounded-3xl overflow-hidden border border-card-border shadow-md"
-            >
-              <div className="h-64 relative">
-                <img src="/images/service-tosa.png" alt="Tosa pet" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
-                  <h3 className="text-3xl font-serif font-bold text-white">Tosa</h3>
+                      <h3 className="text-2xl font-serif font-bold text-white">{service.title}</h3>
+                    </div>
+                  </div>
+                  <div className="flip-card-back">
+                    <h3 className="text-2xl font-serif font-bold mb-4">{service.title}</h3>
+                    <p className="text-sm text-white/90 mb-6 px-2">{service.desc}</p>
+                    <div className="text-lg font-bold bg-white/20 px-4 py-2 rounded-full mb-6">
+                      {service.price}
+                    </div>
+                    <Button 
+                      onClick={() => scrollToSection("agendamento")}
+                      className="bg-white text-purple-700 hover:bg-gray-100 rounded-full font-bold w-full"
+                    >
+                      Agendar
+                    </Button>
+                  </div>
                 </div>
-              </div>
-              <div className="p-8">
-                <ul className="space-y-6">
-                  {[
-                    { title: "Tosa Higiênica", desc: "Limpeza das patinhas, barriga e região íntima para saúde e conforto.", price: "A partir de R$ 40" },
-                    { title: "Tosa Completa (Máquina)", desc: "Redução uniforme da pelagem com finalização em tesoura.", price: "A partir de R$ 80" },
-                    { title: "Tosa na Tesoura", desc: "Acabamento premium, modelagem específica para a raça, preservando volume.", price: "A partir de R$ 120" }
-                  ].map((item, idx) => (
-                    <li key={idx} className="border-b border-border pb-6 last:border-0 last:pb-0">
-                      <div className="flex justify-between items-start mb-2">
-                        <h4 className="font-bold text-lg">{item.title}</h4>
-                        <span className="font-medium text-primary bg-primary/10 px-3 py-1 rounded-full text-sm">{item.price}</span>
-                      </div>
-                      <p className="text-muted-foreground text-sm">{item.desc}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
+              </motion.div>
+            ))}
           </div>
 
-          <div className="bg-primary/5 rounded-3xl p-8 border border-primary/10 text-center">
-            <h4 className="text-xl font-bold mb-6">Serviços Adicionais</h4>
-            <div className="flex flex-wrap justify-center gap-4">
-              {["Hidratação Profunda", "Corte de Unhas", "Limpeza de Ouvidos", "Escovação de Dentes", "Desembolo"].map((service, idx) => (
-                <span key={idx} className="bg-background px-4 py-2 rounded-full text-sm font-medium border border-border flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-primary" />
-                  {service}
-                </span>
+          <div className="bg-primary/5 rounded-3xl p-8 border border-primary/10">
+            <h4 className="text-xl font-bold mb-8 text-center">Serviços Adicionais</h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { title: "Hidratação Profunda", desc: "Máscara reconstrutora que restaura o brilho e maciez da pelagem.", price: "R$ 35", img: "/images/srv-hidratacao.png" },
+                { title: "Corte de Unhas", desc: "Limalha e corte preciso para o conforto e saúde das patinhas.", price: "R$ 20", img: "/images/srv-unhas.png" },
+                { title: "Limpeza de Ouvidos", desc: "Remove cera e sujeira, prevenindo infecções e desconforto.", price: "R$ 20", img: "/images/srv-ouvidos.png" },
+                { title: "Escovação de Dentes", desc: "Higiene bucal com produtos seguros, reduzindo tártaro e mau hálito.", price: "R$ 25", img: "/images/srv-dentes.png" }
+              ].map((service, idx) => (
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1, duration: 0.4 }}
+                  className="flip-card h-[280px] w-full"
+                >
+                  <div className="flip-card-inner shadow-lg rounded-2xl">
+                    <div className="flip-card-front relative">
+                      <img src={service.img} alt={service.title} className="w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-4 text-left">
+                        <div className="mb-2">
+                          <span className="text-xs font-bold px-2 py-1 rounded-full text-white bg-purple-500 w-max">Adicional</span>
+                        </div>
+                        <h4 className="text-lg font-serif font-bold text-white leading-tight">{service.title}</h4>
+                      </div>
+                    </div>
+                    <div className="flip-card-back p-4">
+                      <h4 className="text-lg font-serif font-bold mb-2">{service.title}</h4>
+                      <p className="text-xs text-white/90 mb-4">{service.desc}</p>
+                      <div className="text-sm font-bold bg-white/20 px-3 py-1 rounded-full mb-4">
+                        {service.price}
+                      </div>
+                      <Button 
+                        size="sm"
+                        onClick={() => scrollToSection("agendamento")}
+                        className="bg-white text-purple-700 hover:bg-gray-100 rounded-full font-bold w-full text-xs"
+                      >
+                        Agendar
+                      </Button>
+                    </div>
+                  </div>
+                </motion.div>
               ))}
             </div>
-            <p className="mt-6 text-sm text-muted-foreground">* Os valores podem variar de acordo com o porte, raça e condição da pelagem do animal.</p>
+            <p className="mt-8 text-sm text-muted-foreground text-center">* Os valores podem variar de acordo com o porte, raça e condição da pelagem do animal.</p>
           </div>
         </div>
       </section>
