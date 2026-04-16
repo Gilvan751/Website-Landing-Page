@@ -1,0 +1,10 @@
+{
+  "buildCommand": "cd artifacts/eliana-azevedo && pnpm build",
+  "outputDirectory": "artifacts/eliana-azevedo/dist/public",
+  "installCommand": "pnpm install --ignore-scripts",
+  "framework": null,
+  "env": {
+    "PORT": "3000",
+    "BASE_PATH": "/"
+  }
+}
