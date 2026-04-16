@@ -1,6 +1,6 @@
 {
   "buildCommand": "pnpm --filter @workspace/eliana-azevedo build",
-  "outputDirectory": "artifacts/eliana-azevedo/dist/public",
+  "outputDirectory": "public",
   "installCommand": "pnpm install --ignore-scripts",
   "framework": null,
   "env": {
