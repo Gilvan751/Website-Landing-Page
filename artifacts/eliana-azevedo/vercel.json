@@ -1,0 +1,10 @@
+{
+  "buildCommand": "pnpm build",
+  "outputDirectory": "dist/public",
+  "installCommand": "cd ../.. && pnpm install --ignore-scripts",
+  "framework": null,
+  "env": {
+    "PORT": "3000",
+    "BASE_PATH": "/"
+  }
+}
